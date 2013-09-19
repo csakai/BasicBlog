@@ -1,0 +1,82 @@
+2013-09-19 06:25:11 Error: [MissingControllerException] Controller class PostsController could not be found.
+Exception Attributes: array (
+  'class' => 'PostsController',
+  'plugin' => NULL,
+)
+Request URL: /BasicBlog/posts/index
+Stack Trace:
+#0 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-19 06:26:12 Error: [MissingViewException] View file "C:\wamp\www\BasicBlog\View\Posts\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\BasicBlog\\View\\Posts\\index.ctp',
+)
+Request URL: /BasicBlog/posts/index
+Stack Trace:
+#0 C:\wamp\www\cake\lib\Cake\View\View.php(459): View->_getViewFileName(NULL)
+#1 C:\wamp\www\cake\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-09-19 06:59:40 Error: Fatal Error (4): syntax error, unexpected 'endforeach' (T_ENDFOREACH) in [C:\wamp\www\BasicBlog\View\Posts\index.ctp, line 18]
+2013-09-19 06:59:40 Error: [FatalErrorException] syntax error, unexpected 'endforeach' (T_ENDFOREACH)
+Request URL: /BasicBlog/posts/index
+Stack Trace:
+#0 C:\wamp\www\cake\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\wamp\www\Bas...', 18)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\wamp\www\Bas...', 18, Array)
+#2 C:\wamp\www\cake\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\wamp\www\Bas...', 18, Array)
+#3 C:\wamp\www\cake\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-19 07:03:50 Error: Fatal Error (4): syntax error, unexpected 'endforeach' (T_ENDFOREACH) in [C:\wamp\www\BasicBlog\View\Posts\index.ctp, line 18]
+2013-09-19 07:03:50 Error: [FatalErrorException] syntax error, unexpected 'endforeach' (T_ENDFOREACH)
+Request URL: /BasicBlog/posts
+Stack Trace:
+#0 C:\wamp\www\cake\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\wamp\www\Bas...', 18)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\wamp\www\Bas...', 18, Array)
+#2 C:\wamp\www\cake\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\wamp\www\Bas...', 18, Array)
+#3 C:\wamp\www\cake\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-19 07:05:11 Error: [MissingActionException] Action PostsController::view() could not be found.
+Exception Attributes: array (
+  'controller' => 'PostsController',
+  'action' => 'view',
+)
+Request URL: /BasicBlog/posts/view/1
+Stack Trace:
+#0 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-09-19 07:05:34 Error: [MissingActionException] Action PostsController::view() could not be found.
+Exception Attributes: array (
+  'controller' => 'PostsController',
+  'action' => 'view',
+)
+Request URL: /BasicBlog/posts/view/1
+Stack Trace:
+#0 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-09-19 07:06:52 Error: [MissingControllerException] Controller class PostsController could not be found.
+Exception Attributes: array (
+  'class' => 'PostsController',
+  'plugin' => NULL,
+)
+Request URL: /BasicBlog/posts
+Stack Trace:
+#0 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-19 08:23:42 Error: Fatal Error (4): syntax error, unexpected '=', expecting ')' in [C:\wamp\www\BasicBlog\View\Posts\index.ctp, line 27]
+2013-09-19 08:23:42 Error: [FatalErrorException] syntax error, unexpected '=', expecting ')'
+Request URL: /BasicBlog/posts
+Stack Trace:
+#0 C:\wamp\www\cake\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\wamp\www\Bas...', 27)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\wamp\www\Bas...', 27, Array)
+#2 C:\wamp\www\cake\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\wamp\www\Bas...', 27, Array)
+#3 C:\wamp\www\cake\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
