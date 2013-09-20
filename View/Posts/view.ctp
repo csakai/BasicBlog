@@ -25,7 +25,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Post'), array('action' => 'edit', $post['Post']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Post'), array('action' => 'delete', $post['Post']['id']), null, __('Are you sure you want to delete # %s?', $post['Post']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Post'), array('action' => 'delete', $post['Post']['id']), null, __('Are you sure you want to delete # %s?', $post['Post']['title'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Posts'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Post'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
@@ -37,7 +37,6 @@
 	<?php if (!empty($post['Comment'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Email'); ?></th>
 		<th><?php echo __('Body'); ?></th>
 		<th><?php echo __('Post Id'); ?></th>
@@ -47,7 +46,6 @@
 	</tr>
 	<?php foreach ($post['Comment'] as $comment): ?>
 		<tr>
-			<td><?php echo $comment['id']; ?></td>
 			<td><?php echo $comment['email']; ?></td>
 			<td><?php echo $comment['body']; ?></td>
 			<td><?php echo $comment['post_id']; ?></td>
@@ -56,7 +54,7 @@
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'comments', 'action' => 'view', $comment['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'comments', 'action' => 'edit', $comment['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'comments', 'action' => 'delete', $comment['id']), null, __('Are you sure you want to delete # %s?', $comment['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'comments', 'action' => 'delete', $comment['id']), null, __('Are you sure you want to delete this comment?')); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -65,7 +63,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add', $post['Post']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>

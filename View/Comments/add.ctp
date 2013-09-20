@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('email');
 		echo $this->Form->input('body');
-		echo $this->Form->input('post_id');
+		echo $this->Form->hidden('post_id', array('default' => h($post_id)));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
