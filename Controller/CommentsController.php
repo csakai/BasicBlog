@@ -13,7 +13,8 @@ class CommentsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Session');
+	public $helpers = array('Html', 'Form', 'Session');
 
 /**
  * index method

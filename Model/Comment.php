@@ -33,12 +33,13 @@ class Comment extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Post' => array(
+		'MyPost' => array(
 			'className' => 'Post',
 			'foreignKey' => 'post_id',
-			'conditions' => '',
+			'conditions' => array('Post.status' => '1'),
 			'fields' => '',
-			'order' => ''
+			'order' => array('Comment.created' => 'DESC'),
+			'counterCache' => true
 		)
 	);
 }

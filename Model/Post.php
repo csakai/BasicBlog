@@ -23,13 +23,13 @@ class Post extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Comment' => array(
+		'MyComment' => array(
 			'className' => 'Comment',
 			'foreignKey' => 'post_id',
-			'dependent' => false,
-			'conditions' => '',
+			'dependent' => true,
+			#'conditions' => array('' => '1'),
 			'fields' => '',
-			'order' => '',
+			#'order' => array('Comment.created' => 'DESC'),
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
