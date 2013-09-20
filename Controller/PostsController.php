@@ -5,8 +5,16 @@ App::uses('AppController', 'Controller');
  *
  * @property Post $Post
  * @property PaginatorComponent $Paginator
+ * @property SessionComponent $Session
  */
 class PostsController extends AppController {
+
+/**
+ * Helpers
+ *
+ * @var array
+ */
+	public $helpers = array('Session');
 
 /**
  * Components
@@ -14,7 +22,7 @@ class PostsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
-	public $helpers = array('Html', 'Form', 'Session');
+
 /**
  * index method
  *

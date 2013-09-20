@@ -8,14 +8,51 @@ App::uses('AppModel', 'Model');
 class Comment extends AppModel {
 
 /**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'body';
+
+/**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
+		'email' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'body' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'post_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'created' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -33,13 +70,12 @@ class Comment extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'MyPost' => array(
+		'Post' => array(
 			'className' => 'Post',
 			'foreignKey' => 'post_id',
-			'conditions' => array('Post.status' => '1'),
+			'conditions' => '',
 			'fields' => '',
-			'order' => array('Comment.created' => 'DESC'),
-			'counterCache' => true
+			'order' => ''
 		)
 	);
 }

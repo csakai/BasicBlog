@@ -5,8 +5,16 @@ App::uses('AppController', 'Controller');
  *
  * @property Comment $Comment
  * @property PaginatorComponent $Paginator
+ * @property SessionComponent $Session
  */
 class CommentsController extends AppController {
+
+/**
+ * Helpers
+ *
+ * @var array
+ */
+	public $helpers = array('Session');
 
 /**
  * Components
@@ -14,8 +22,7 @@ class CommentsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
-	public $helpers = array('Html', 'Form', 'Session');
-
+	public $postKey = 'postKey';
 /**
  * index method
  *
@@ -41,6 +48,13 @@ class CommentsController extends AppController {
 		$this->set('comment', $this->Comment->find('first', $options));
 	}
 
+/**
+ * view post's comments method
+*/
+	public function postscomments($post_id=null) {
+		$options = array('conditions' => array('Comment.' . $this->Comment->postKey => $post_id));
+		$this -> set('comments', $this->Comment->find('all', $options));
+	}
 /**
  * add method
  *
