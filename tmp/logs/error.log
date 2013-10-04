@@ -456,3 +456,52 @@ Stack Trace:
 #3 C:\wamp\www\cake\lib\Cake\Core\App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-10-03 17:52:40 Error: [NotFoundException] Invalid post
+Request URL: /BasicBlog/posts/1
+Stack Trace:
+#0 [internal function]: PostsController->view()
+#1 C:\wamp\www\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PostsController), Array)
+#2 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-03 17:53:35 Error: [MissingActionException] Action PostsController::1() could not be found.
+Exception Attributes: array (
+  'controller' => 'PostsController',
+  'action' => '1',
+)
+Request URL: /BasicBlog/posts/1
+Stack Trace:
+#0 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-10-03 17:54:44 Error: [MissingActionException] Action PostsController::1() could not be found.
+Exception Attributes: array (
+  'controller' => 'PostsController',
+  'action' => '1',
+)
+Request URL: /BasicBlog/posts/1
+Stack Trace:
+#0 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-10-03 17:57:38 Error: [NotFoundException] Invalid post
+Request URL: /BasicBlog/posts/1
+Stack Trace:
+#0 [internal function]: PostsController->view()
+#1 C:\wamp\www\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PostsController), Array)
+#2 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-03 17:57:47 Error: [NotFoundException] Invalid post
+Request URL: /BasicBlog/Posts/1
+Stack Trace:
+#0 [internal function]: PostsController->view()
+#1 C:\wamp\www\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PostsController), Array)
+#2 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\cake\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\BasicBlog\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
