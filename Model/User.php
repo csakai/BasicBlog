@@ -1,5 +1,5 @@
 <?php
-App::uses('AppModel', 'Model');
+App::uses('AuthComponent', 'Controller/Component', 'AppModel', 'Model');
 /**
  * User Model
  *
@@ -8,6 +8,12 @@ App::uses('AppModel', 'Model');
  */
 class User extends AppModel {
 
+public function beforeSave($options = array()){
+	if (isset($this->data[$this->alias]['password'])) {
+		$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+	}
+	return true;
+}
 /**
  * Validation rules
  *
@@ -15,43 +21,6 @@ class User extends AppModel {
  */
 	public $validate = array(
 		'username' => array(
-			'between' => array(
-				'rule' => array('between', 5, 20),
-				'message' => 'Username must be between 5 and 20 characters'),
-			'isUnique' => array(
-				'rule' => 'isUnique',
-				'message' => 'Sorry, that username is already taken'),
-			'required' => 'create'
-			),
-		'password' => array(
-			'between' => array(
-				'rule' => array('minLength', '8'),
-				'message' => 'Minimum 8 characters long.'),
-			'required' => true
-			),
-		'email' => array(
-			'email create' => array(
-				'rule' => 'email',
-				'required' => 'create',
-				'message' => "Must use a valid email address",
-				'on' => 'create'
-				),
-			'email update' => array(
-				'rule' => 'email',
-				'required' => false,
-				'message' => "If you're changing your email, it must be valid",
-				'on' => 'update'
-				)
-			),
-		'role' => array(
-			'allowedChoice' => array(
-				'rule' => array('inList', array('admin', 'author')),
-				'message' => 'Please pick a valid role.'
-				)
-			)
-		);
-	/*public $validate = array(
-		'username' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -61,7 +30,15 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'minlength' => array(
-				'rule' => array('minlength'),
+				'rule' => array('minlength', 5),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'maxlength' => array(
+				'rule' => array('maxlength', 50),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -79,7 +56,15 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'minlength' => array(
-				'rule' => array('minlength'),
+				'rule' => array('minlength', 8),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'maxlength' => array(
+				'rule' => array('maxlength', 50),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -88,17 +73,9 @@ class User extends AppModel {
 			),
 		),
 		'role' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
 			'inlist' => array(
 				'rule' => array('inlist', array('admin', 'author')),
-				'message' => 'Please enter a valid role',
+				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -115,7 +92,17 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-	);*/
+		'created' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

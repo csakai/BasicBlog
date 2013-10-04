@@ -53,7 +53,7 @@
 			<td><?php echo $comment['modified']; ?></td>
 			<td class="actions">
 				<!--<?php echo $this->Html->link(__('View'), array('controller' => 'comments', 'action' => 'view', $comment['id'])); ?>-->
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'comments', 'action' => 'edit', $comment['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'comments', 'action' => 'edit', $comment['id'], $comment['post_id'])); ?>
 				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'comments', 'action' => 'delete', $comment['id']), null, __('Are you sure you want to delete this comment?')); ?>
 			</td>
 		</tr>

@@ -83,4 +83,9 @@ class Comment extends AppModel {
 			'foreignKey' => 'user_id'
 			)
 	);
+
+	//Owned by function
+	public function isOwnedBy($comment, $user) {
+    return $this->field('id', array('id' => $comment, 'user_id' => $user)) === $comment;
+	}
 }

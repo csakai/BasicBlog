@@ -22,6 +22,23 @@ class CommentsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
+
+	public function isAuthorized($user) {
+    // All registered users can add posts
+    if ($this->action === 'add') {
+        return true;
+    }
+
+    // The owner of a post can edit and delete it
+    if (in_array($this->action, array('edit', 'delete'))) {
+        $commentId = $this->request->params['pass'][0];
+        if ($this->Comment->isOwnedBy($commentId, $user['id'])) {
+            return true;
+        }
+    }
+
+    return parent::isAuthorized($user);
+	}
 /**
  * index method
  *
@@ -54,10 +71,11 @@ class CommentsController extends AppController {
  */
 	public function add($post_id) {
 		if ($this->request->is('post')) {
+			$this->request->data['Post']['user_id'] = $this->Auth->user('id'); 
 			$this->Comment->create();
 			if ($this->Comment->save($this->request->data)) {
 				$this->Session->setFlash(__('The comment has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'Posts', 'action' => 'view', $post_id));
 			} else {
 				$this->Session->setFlash(__('The comment could not be saved. Please, try again.'));
 			}
@@ -74,14 +92,14 @@ class CommentsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function edit($id = null, $post_id = null) {
 		if (!$this->Comment->exists($id)) {
 			throw new NotFoundException(__('Invalid comment'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Comment->save($this->request->data)) {
 				$this->Session->setFlash(__('The comment has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'Posts', 'action' => 'view', $post_id));
 			} else {
 				$this->Session->setFlash(__('The comment could not be saved. Please, try again.'));
 			}
@@ -91,6 +109,7 @@ class CommentsController extends AppController {
 		}
 		$posts = $this->Comment->Post->find('list');
 		$this->set(compact('posts'));
+		$this->set('post_id', $post_id);
 	}
 
 /**
@@ -111,5 +130,6 @@ class CommentsController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The comment could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
-	}}
+		return $this->redirect(array('controller' => 'Posts', 'action' => 'index'));
+	}
+}
